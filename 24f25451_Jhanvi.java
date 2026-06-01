@@ -49,7 +49,7 @@ public class JobMarketAnalysis {
         }
 
         // If-else - classify demand level
-        if (growthRate > 20) {
+        if (growthRate >= 20) {
             System.out.println("Sector: " + sectorName);
             System.out.println("Growth: " + growthRate + "%");
             System.out.println("Demand: HIGH DEMAND");
