@@ -33,6 +33,9 @@ public class JobMarketAnalysis {
             case 4:
                 sectorName = "Education";
                 break;
+                case 5:
+    sectorName = "Retail";
+    break;
             default:
                 sectorName = "Unknown";
                 break;
