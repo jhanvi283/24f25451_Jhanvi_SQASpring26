@@ -7,14 +7,23 @@ public class JobMarketAnalysis {
         Scanner sc = new Scanner(System.in);
 
         // Take input from user
-        System.out.print("Enter sector (1=IT, 2=Finance, 3=Healthcare, 4=Education): ");
-        int sector = sc.nextInt();
+try {
+    System.out.print("Enter sector (1=IT, 2=Finance, 3=Healthcare, 4=Education): ");
+    int sector = sc.nextInt();
 
-        System.out.print("Enter job postings this month: ");
-        int current = sc.nextInt();
+    System.out.print("Enter job postings this month: ");
+    int current = sc.nextInt();
 
-        System.out.print("Enter job postings last month: ");
-        int previous = sc.nextInt();
+    System.out.print("Enter job postings last month: ");
+    int previous = sc.nextInt();
+
+    // PUT YOUR EXISTING SWITCH + LOGIC BELOW THIS
+
+} catch (Exception e) {
+    System.out.println("Invalid input! Please enter numbers only.");
+    sc.close();
+    return;
+}
         // Input validation - prevent negative values
 if (current < 0 || previous < 0) {
     System.out.println("Error: Job postings cannot be negative.");
