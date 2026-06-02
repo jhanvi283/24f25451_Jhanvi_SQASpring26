@@ -6,35 +6,38 @@ public class JobMarketAnalysis {
 
         Scanner sc = new Scanner(System.in);
 
-        // Take input from user
-try {
-    System.out.print("Enter sector (1=IT, 2=Finance, 3=Healthcare, 4=Education): ");
-    int sector = sc.nextInt();
+        // Declare OUTSIDE try (IMPORTANT FIX)
+        int sector = 0;
+        int current = 0;
+        int previous = 0;
 
-    System.out.print("Enter job postings this month: ");
-    int current = sc.nextInt();
+        try {
+            System.out.print("Enter sector (1=IT, 2=Finance, 3=Healthcare, 4=Education): ");
+            sector = sc.nextInt();
 
-    System.out.print("Enter job postings last month: ");
-    int previous = sc.nextInt();
+            System.out.print("Enter job postings this month: ");
+            current = sc.nextInt();
 
-    // PUT YOUR EXISTING SWITCH + LOGIC BELOW THIS
+            System.out.print("Enter job postings last month: ");
+            previous = sc.nextInt();
 
-} catch (Exception e) {
-    System.out.println("Invalid input! Please enter numbers only.");
-    sc.close();
-    return;
-}
-        // Input validation - prevent negative values
-if (current < 0 || previous < 0) {
-    System.out.println("Error: Job postings cannot be negative.");
-    sc.close();
-    return;
-}
+        } catch (Exception e) {
+            System.out.println("Invalid input! Please enter numbers only.");
+            sc.close();
+            return;
+        }
+
+        // Input validation
+        if (current < 0 || previous < 0) {
+            System.out.println("Error: Job postings cannot be negative.");
+            sc.close();
+            return;
+        }
 
         String sectorName;
         double growthRate;
 
-        // Switch statement - find sector name
+        // Switch statement
         switch (sector) {
             case 1:
                 sectorName = "IT";
@@ -48,22 +51,22 @@ if (current < 0 || previous < 0) {
             case 4:
                 sectorName = "Education";
                 break;
-                case 5:
-    sectorName = "Retail";
-    break;
+            case 5:
+                sectorName = "Retail";
+                break;
             default:
                 sectorName = "Unknown";
                 break;
         }
 
-        // Calculate growth rate
+        // Growth calculation
         if (previous > 0) {
             growthRate = ((double)(current - previous) / previous) * 100;
         } else {
             growthRate = 0;
         }
 
-        // If-else - classify demand level
+        // Demand classification
         if (growthRate >= 20) {
             System.out.println("Sector: " + sectorName);
             System.out.println("Growth: " + growthRate + "%");
