@@ -15,6 +15,12 @@ public class JobMarketAnalysis {
 
         System.out.print("Enter job postings last month: ");
         int previous = sc.nextInt();
+        // Input validation - prevent negative values
+if (current < 0 || previous < 0) {
+    System.out.println("Error: Job postings cannot be negative.");
+    sc.close();
+    return;
+}
 
         String sectorName;
         double growthRate;
